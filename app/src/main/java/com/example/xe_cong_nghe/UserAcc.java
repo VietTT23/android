@@ -1,16 +1,18 @@
 package com.example.xe_cong_nghe;
 
 public class UserAcc {
-    String hoten;
-    String sdt;
-    String email;
-    String matkhau;
+    public String hoten;
+    public String email;
+    public String sdt;
+    public String matkhau;
 
-    public UserAcc(String hoten, String email, String sdt, String matkau) {
+    public UserAcc(){}
+
+    public UserAcc(String hoten, String email, String sdt, String matkhau) {
         this.hoten = hoten;
         this.email = email;
         this.sdt = sdt;
-        this.matkhau = matkau;
+        this.matkhau = matkhau;
     }
     
 }

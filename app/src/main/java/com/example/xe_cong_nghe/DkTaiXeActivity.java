@@ -27,6 +27,7 @@ public class DkTaiXeActivity extends AppCompatActivity {
     Button btn_dktx;
     //ProgressBar loading;
     FirebaseAuth fAuth;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class DkTaiXeActivity extends AppCompatActivity {
         //loading = (ProgressBar) findViewById(R.id.loading);
 
         fAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         txt_dntx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,11 +99,13 @@ public class DkTaiXeActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful()){
-                            Toast.makeText(DkTaiXeActivity.this, "Đăng kí không thành công!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DkTaiXeActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
                         }else {
+                            String key = hoten;
                             String user_id = fAuth.getCurrentUser().getUid();
-                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("users").child("tai_xe").child(user_id).child("name");
-                            current_user_db.setValue(email);
+                            UserAcc userAcc = new UserAcc(hoten, email, sdt ,matkhau);
+                            DatabaseReference add_user_db = FirebaseDatabase.getInstance().getReference().child("user").child("tai_xe").child(key).child(user_id);
+                            add_user_db.setValue(userAcc);
                         }
                     }
                 });

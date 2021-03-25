@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,6 +28,7 @@ public class DkKhachHangActivity extends AppCompatActivity {
     Button btn_dkkh;
     //ProgressBar loading;
     FirebaseAuth fAuth;
+    //FirebaseAuth.AuthStateListener fAL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class DkKhachHangActivity extends AppCompatActivity {
         //loading = (ProgressBar) findViewById(R.id.loading);
 
         fAuth = FirebaseAuth.getInstance();
+
 
         txt_dnkh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,17 +97,19 @@ public class DkKhachHangActivity extends AppCompatActivity {
                     return;
                 }
 
+
+
                 fAuth.createUserWithEmailAndPassword(email, matkhau).addOnCompleteListener(DkKhachHangActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful()){
-                            Toast.makeText(DkKhachHangActivity.this, "Đăng kí không thành công!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DkKhachHangActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
                         }else {
                             String key = hoten;
                             String user_id = fAuth.getCurrentUser().getUid();
-                            UserAcc userAcc = new UserAcc(hoten, email, sdt ,matkhau);
-                            DatabaseReference add_user_db = FirebaseDatabase.getInstance().getReference().child("users").child("khach_hang").child(key).child(user_id);
-                            add_user_db.setValue(userAcc);
+                            DatabaseReference add_user_db = FirebaseDatabase.getInstance().getReference().child("user").child("khach_hang").child(key).child(user_id);
+                            UserAcc user = new UserAcc(hoten, email, sdt ,matkhau);
+                            add_user_db.setValue(user);
                         }
                     }
                 });
