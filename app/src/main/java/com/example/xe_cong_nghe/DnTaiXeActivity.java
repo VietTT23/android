@@ -34,6 +34,7 @@ public class DnTaiXeActivity extends AppCompatActivity {
         btn_dn_tx = (Button) findViewById(R.id.btn_dn_tx);
         btn_dk_tx = (Button) findViewById(R.id.btn_dk_tx);
 
+        fAuth = FirebaseAuth.getInstance();
 
         btn_dk_tx.setOnClickListener(new View.OnClickListener() {
             @Override
