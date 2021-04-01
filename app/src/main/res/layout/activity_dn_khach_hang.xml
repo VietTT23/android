@@ -96,6 +96,12 @@
             android:textSize="16dp"
             android:textColor="#0000EE"/>
 
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
+
 
     </LinearLayout>
 

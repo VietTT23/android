@@ -36,8 +36,6 @@ public class DnKhachHangActivity extends AppCompatActivity {
         btn_dn_kh = (Button) findViewById(R.id.btn_dn_kh);
         btn_dk_kh = (Button) findViewById(R.id.btn_dk_kh);
 
-        fAuth = FirebaseAuth.getInstance();
-
 
         btn_dk_kh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,15 +49,14 @@ public class DnKhachHangActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = edt_email_kh.getText().toString();
-                String pass = edt_mk_kh.getText().toString();
-                fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(DnKhachHangActivity.this, new OnCompleteListener<AuthResult>() {
+                String matkhau = edt_mk_kh.getText().toString();
+                fAuth.signInWithEmailAndPassword(email, matkhau).addOnCompleteListener(DnKhachHangActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful()){
                             Toast.makeText(DnKhachHangActivity.this, "Lỗi đăng nhập!", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            Toast.makeText(DnKhachHangActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                             Intent intent_khach_hang = new Intent(DnKhachHangActivity.this, KhachHangActivity.class);
                             startActivity(intent_khach_hang);
                         }

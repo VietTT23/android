@@ -25,9 +25,8 @@ public class DkTaiXeActivity extends AppCompatActivity {
     TextView txt_dntx;
     EditText edt_email_dktx, edt_ten_dktx, edt_sdt_dktx, edt_mk_dktx, edt_xnmk_dktx;
     Button btn_dktx;
-    //ProgressBar loading;
+    ProgressBar loading;
     FirebaseAuth fAuth;
-    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +40,9 @@ public class DkTaiXeActivity extends AppCompatActivity {
         edt_email_dktx = (EditText) findViewById(R.id.edt_email_dktx);
         btn_dktx = (Button) findViewById(R.id.btn_dktx);
         txt_dntx = (TextView) findViewById(R.id.txt_dntx);
-        //loading = (ProgressBar) findViewById(R.id.loading);
+        loading = (ProgressBar) findViewById(R.id.loading);
 
         fAuth = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance();
 
         txt_dntx.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,17 +93,22 @@ public class DkTaiXeActivity extends AppCompatActivity {
                     return;
                 }
 
+                loading.setVisibility(View.VISIBLE);
+
                 fAuth.createUserWithEmailAndPassword(email, matkhau).addOnCompleteListener(DkTaiXeActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful()){
-                            Toast.makeText(DkTaiXeActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DkTaiXeActivity.this, "Lỗi đăng kí!", Toast.LENGTH_SHORT).show();
                         }else {
-                            String key = hoten;
                             String user_id = fAuth.getCurrentUser().getUid();
                             UserAcc userAcc = new UserAcc(hoten, email, sdt ,matkhau);
-                            DatabaseReference add_user_db = FirebaseDatabase.getInstance().getReference().child("user").child("tai_xe").child(key).child(user_id);
+                            DatabaseReference add_user_db = FirebaseDatabase.getInstance().getReference().child("user").child("tai_xe").child(user_id);
                             add_user_db.setValue(userAcc);
+                            Intent intent_dn_tx = new Intent(DkTaiXeActivity.this, DnKhachHangActivity.class);
+                            startActivity(intent_dn_tx);
+                            Toast.makeText(DkTaiXeActivity.this, "Đăng kí thành công! Bạn có thể đăng nhập ngay bây giờ!", Toast.LENGTH_LONG).show();
+                            loading.setVisibility(View.INVISIBLE);
                         }
                     }
                 });

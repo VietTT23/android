@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Xecongnghe">
-        <activity android:name=".KhachHangActivity"></activity>
+        <activity android:name=".TtKhachHangActivity"></activity>
+        <activity android:name=".TtTaiXeActivity" />
+        <activity android:name=".KhachHangActivity" />
         <activity android:name=".TaiXeActivity" />
         <activity android:name=".MainTaiXeActivity" />
         <activity android:name=".DkTaiXeActivity" />

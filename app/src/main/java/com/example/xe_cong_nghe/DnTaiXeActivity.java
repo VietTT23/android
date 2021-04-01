@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ public class DnTaiXeActivity extends AppCompatActivity {
     TextView txt_qmk_tx;
     Button btn_dk_tx, btn_dn_tx;
     EditText edt_email_tx, edt_mk_tx;
+    ProgressBar loading;
     FirebaseAuth fAuth;
 
     @Override
@@ -33,6 +36,7 @@ public class DnTaiXeActivity extends AppCompatActivity {
         edt_mk_tx = (EditText) findViewById(R.id.edt_mk_tx);
         btn_dn_tx = (Button) findViewById(R.id.btn_dn_tx);
         btn_dk_tx = (Button) findViewById(R.id.btn_dk_tx);
+        loading = (ProgressBar) findViewById(R.id.loading);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -49,11 +53,25 @@ public class DnTaiXeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = edt_email_tx.getText().toString().trim();
                 String matkhau = edt_mk_tx.getText().toString().trim();
+
+                if(TextUtils.isEmpty(email)){
+                    edt_email_tx.setError("Bạn chưa nhập email");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(matkhau)){
+                    edt_mk_tx.setError("Bạn chưa nhập mật khẩu");
+                    return;
+                }
+
+                loading.setVisibility(View.VISIBLE);
+
                 fAuth.signInWithEmailAndPassword(email, matkhau).addOnCompleteListener(DnTaiXeActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful()){
                             Toast.makeText(DnTaiXeActivity.this, "Lỗi đăng nhập!", Toast.LENGTH_SHORT).show();
+                            loading.setVisibility(View.INVISIBLE);
                         }
                         else {
                             Intent intent_tai_xe = new Intent(DnTaiXeActivity.this, TaiXeActivity.class);

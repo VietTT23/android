@@ -1,4 +1,4 @@
-package com.example.xe_cong_nghe;
+  package com.example.xe_cong_nghe;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,9 +26,8 @@ public class DkKhachHangActivity extends AppCompatActivity {
     TextView txt_dnkh;
     EditText edt_email_dkkh, edt_ten_dkkh, edt_sdt_dkkh, edt_mk_dkkh, edt_xnmk_dkkh;
     Button btn_dkkh;
-    //ProgressBar loading;
+    ProgressBar loading;
     FirebaseAuth fAuth;
-    //FirebaseAuth.AuthStateListener fAL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +41,9 @@ public class DkKhachHangActivity extends AppCompatActivity {
         edt_email_dkkh = (EditText) findViewById(R.id.edt_email_dkkh);
         btn_dkkh = (Button) findViewById(R.id.btn_dkkh);
         txt_dnkh = (TextView) findViewById(R.id.txt_dnkh);
-        //loading = (ProgressBar) findViewById(R.id.loading);
+        loading = (ProgressBar) findViewById(R.id.loading);
 
         fAuth = FirebaseAuth.getInstance();
-
 
         txt_dnkh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +56,6 @@ public class DkKhachHangActivity extends AppCompatActivity {
         btn_dkkh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // extract the data from the form
 
                 String hoten = edt_ten_dkkh.getText().toString();
                 String sdt = edt_sdt_dkkh.getText().toString();
@@ -97,19 +93,23 @@ public class DkKhachHangActivity extends AppCompatActivity {
                     return;
                 }
 
-
+                loading.setVisibility(View.VISIBLE);
 
                 fAuth.createUserWithEmailAndPassword(email, matkhau).addOnCompleteListener(DkKhachHangActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful()){
-                            Toast.makeText(DkKhachHangActivity.this, "Lỗi!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DkKhachHangActivity.this, "Lỗi đăng kí!", Toast.LENGTH_SHORT).show();
+                            loading.setVisibility(View.INVISIBLE);
                         }else {
-                            String key = hoten;
                             String user_id = fAuth.getCurrentUser().getUid();
-                            DatabaseReference add_user_db = FirebaseDatabase.getInstance().getReference().child("user").child("khach_hang").child(key).child(user_id);
+                            DatabaseReference add_user_db = FirebaseDatabase.getInstance().getReference().child("user").child("khach_hang").child(user_id);
                             UserAcc user = new UserAcc(hoten, email, sdt ,matkhau);
                             add_user_db.setValue(user);
+                            Intent intent_dn_kh = new Intent(DkKhachHangActivity.this, DnKhachHangActivity.class);
+                            startActivity(intent_dn_kh);
+                            Toast.makeText(DkKhachHangActivity.this, "Đăng kí thành công! Bạn có thể đăng nhập ngay bây giờ", Toast.LENGTH_LONG).show();
+                            loading.setVisibility(View.INVISIBLE);
                         }
                     }
                 });
