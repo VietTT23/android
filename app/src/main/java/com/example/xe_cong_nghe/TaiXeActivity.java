@@ -42,5 +42,14 @@ public class TaiXeActivity extends AppCompatActivity {
                 return;
             }
         });
+
+        btn_map_tx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TaiXeActivity.this, MapsTaiXeActivity.class);
+                startActivity(i);
+                return;
+            }
+        });
     }
 }
