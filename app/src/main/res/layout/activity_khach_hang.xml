@@ -44,17 +44,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="1.0">
 
-        <Button
-            android:id="@+id/btn_ls_kh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:background="#195EB9"
-            android:text="Lịch sử chuyến đi"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
 
         <Button
             android:id="@+id/btn_tt_kh"
