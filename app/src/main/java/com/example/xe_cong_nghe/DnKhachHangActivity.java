@@ -35,6 +35,7 @@ public class DnKhachHangActivity extends AppCompatActivity {
         edt_mk_kh = (EditText) findViewById(R.id.edt_mk_kh);
         btn_dn_kh = (Button) findViewById(R.id.btn_dn_kh);
         btn_dk_kh = (Button) findViewById(R.id.btn_dk_kh);
+        fAuth = FirebaseAuth.getInstance();
 
 
         btn_dk_kh.setOnClickListener(new View.OnClickListener() {

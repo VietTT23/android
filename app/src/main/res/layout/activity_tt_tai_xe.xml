@@ -14,49 +14,34 @@
         <ImageView
             android:layout_width="100sp"
             android:layout_height="100sp"
-            android:id="@+id/profileImage"
+            android:id="@+id/profileImage_tx"
             android:src="@drawable/default_user"
             android:layout_marginBottom="20sp"/>
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/name_tx"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
             android:hint="Name"
             android:layout_marginBottom="20sp"/>
         <EditText
-            android:id="@+id/phone"
+            android:id="@+id/phone_tx"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
             android:hint="Phone"
             android:layout_marginBottom="20sp"
             android:inputType="number"/>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/radioGroup"
-            android:orientation="horizontal">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Xe máy"
-                android:id="@+id/xemay"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ô tô"
-                android:id="@+id/oto"/>
-        </RadioGroup>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/confirm"
+            android:id="@+id/confirm_tx"
             android:text="Sửa"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/back"
+            android:id="@+id/back_tx"
             android:text="Thoát"/>
     </LinearLayout>
 

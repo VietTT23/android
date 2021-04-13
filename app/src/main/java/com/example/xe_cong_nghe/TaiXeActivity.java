@@ -18,7 +18,7 @@ public class TaiXeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tai_xe);
 
-        btn_ls_tx = (Button) findViewById(R.id.btn_ls_tx);
+        //btn_ls_tx = (Button) findViewById(R.id.btn_ls_tx);
         btn_tt_tx = (Button) findViewById(R.id.btn_tt_tx);
         btn_map_tx = (Button) findViewById(R.id.btn_map_tx);
         btn_dang_xuat_tx = (Button) findViewById(R.id.btn_dang_xuat_tx);

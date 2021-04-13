@@ -18,7 +18,7 @@ public class KhachHangActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_khach_hang);
 
-        btn_ls_kh = (Button) findViewById(R.id.btn_ls_kh);
+        //btn_ls_kh = (Button) findViewById(R.id.btn_ls_kh);
         btn_tt_kh = (Button) findViewById(R.id.btn_tt_kh);
         btn_map_kh = (Button) findViewById(R.id.btn_map_kh);
         btn_dang_xuat_kh = (Button) findViewById(R.id.btn_dang_xuat_kh);
