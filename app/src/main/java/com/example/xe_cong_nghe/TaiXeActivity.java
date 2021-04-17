@@ -46,7 +46,7 @@ public class TaiXeActivity extends AppCompatActivity {
         btn_map_tx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(TaiXeActivity.this, MapsTaiXeActivity.class);
+                Intent i = new Intent(TaiXeActivity.this, MapsTaiXeActivity2.class);
                 startActivity(i);
                 return;
             }

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">xe-cong-nghe</string>
     <string name="title_activity_maps_tai_xe">Map</string>
+    <string name="title_activity_maps_khach_hang">Map</string>
+    <string name="title_activity_maps_tai_xe2">Map</string>
+    <string name="title_activity_maps_khach_hang2">Map</string>
 </resources>

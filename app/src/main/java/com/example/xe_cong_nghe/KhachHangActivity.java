@@ -42,5 +42,14 @@ public class KhachHangActivity extends AppCompatActivity {
                 return;
             }
         });
+
+        btn_map_kh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(KhachHangActivity.this, MapsKhachHangActivity2.class);
+                startActivity(i);
+                return;
+            }
+        });
     }
 }

@@ -1,23 +1,24 @@
 {
   "project_info": {
     "project_number": "631467068594",
+    "firebase_url": "https://faketaxi-54006-default-rtdb.firebaseio.com",
     "project_id": "faketaxi-54006",
     "storage_bucket": "faketaxi-54006.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:631467068594:android:6a5258c7520df899230dab",
+        "mobilesdk_app_id": "1:631467068594:android:ade62e71d3a8e281230dab",
         "android_client_info": {
-          "package_name": "com.example.faketaxiapp"
+          "package_name": "com.example.xe_cong_nghe"
         }
       },
       "oauth_client": [
         {
-          "client_id": "631467068594-boo6r2thnvfeppu3npmetf59vk9ktvq2.apps.googleusercontent.com",
+          "client_id": "631467068594-n9saoc5ohv196batenr1o9i2ehog5pqc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.faketaxiapp",
+            "package_name": "com.example.xe_cong_nghe",
             "certificate_hash": "8df97b25a58973b8537e41f72714ccf64d82d2b2"
           }
         },
@@ -28,36 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAHdTD6JoHzp5R4t9LMGsBklGdTNVisoIE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "631467068594-vrm4tetdagakht9nf7c3qnu8ve0hebib.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:631467068594:android:6cbc6c3069230e52230dab",
-        "android_client_info": {
-          "package_name": "com.example.xe_cong_nghe"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "631467068594-vrm4tetdagakht9nf7c3qnu8ve0hebib.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAHdTD6JoHzp5R4t9LMGsBklGdTNVisoIE"
+          "current_key": "AIzaSyBgqNe2fS6fqi0b3qAkIF5xvxqo9-Yj4n0"
         }
       ],
       "services": {

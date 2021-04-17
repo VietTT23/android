@@ -13,6 +13,7 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -29,16 +30,23 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyBGiVYnXeihtJr_KRyoHvXIETSJgQLo5yE" />
 
         <activity
-            android:name=".MapsTaiXeActivity"
-            android:label="@string/title_activity_maps_tai_xe"></activity>
+            android:name=".MapsKhachHangActivity2"
+            android:label="@string/title_activity_maps_khach_hang2"></activity>
+        <activity
+            android:name=".MapsTaiXeActivity2"
+            android:label="@string/title_activity_maps_tai_xe2" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
         <activity android:name=".TtKhachHangActivity" />
         <activity android:name=".TtTaiXeActivity" />
         <activity android:name=".KhachHangActivity" />
         <activity android:name=".TaiXeActivity" />
-        <activity android:name=".MainTaiXeActivity" />
         <activity android:name=".DkTaiXeActivity" />
         <activity android:name=".DnTaiXeActivity" />
         <activity android:name=".DkKhachHangActivity" />
